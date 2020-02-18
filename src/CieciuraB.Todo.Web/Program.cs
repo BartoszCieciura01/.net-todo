@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Hosting.Server.Features;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
@@ -20,6 +22,9 @@ namespace CieciuraB.Todo.Web
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
+                    //webBuilder.UseContentRoot(Directory.GetCurrentDirectory());
+                    webBuilder.UseKestrel();
+                    //webBuilder.UseWebRoot("www");
                     webBuilder.UseStartup<Startup>();
                 });
     }
