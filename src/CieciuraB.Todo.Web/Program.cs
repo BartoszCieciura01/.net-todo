@@ -15,6 +15,7 @@ namespace CieciuraB.Todo.Web
     {
         public static void Main(string[] args)
         {
+            Persist.ContekstDb.Init(); 
             CreateHostBuilder(args).Build().Run();
         }
 

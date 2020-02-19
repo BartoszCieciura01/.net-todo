@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using CieciuraB.Todo.Web.Models;
+using CieciuraB.Todo.Web.Persist.Domain;
 
 namespace CieciuraB.Todo.Web.Controllers
 {
@@ -31,6 +32,12 @@ namespace CieciuraB.Todo.Web.Controllers
         {
             return View();
         }
+        public IActionResult List()
+        {
+            List<Item>items= Persist.ContekstDb.Items;
+            return View(items);
+        }
+        
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

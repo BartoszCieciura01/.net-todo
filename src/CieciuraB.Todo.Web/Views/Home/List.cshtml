@@ -1,0 +1,32 @@
+@using CieciuraB.Todo.Web.Persist.Domain
+@model List<CieciuraB.Todo.Web.Persist.Domain.Item>;
+@{
+    ViewData["Title"] = "List";
+}
+<h1>@ViewData["Title"]</h1>
+
+<table class="tablica">
+    <thead>
+    <tr>
+        <td>#</td>
+        <td>Nazwa</td>
+        <td>Opis</td>
+        <td>Status</td>
+    </tr>
+    </thead>
+    <tbody>
+    @{
+        int i = 0;
+        foreach (CieciuraB.Todo.Web.Persist.Domain.Item item in Model)
+        {
+            i = i + 1;
+            <tr>
+                <td>@i.ToString().</td>
+                <td>@item.Name</td>
+                <td>@item.Description</td>
+                <td></td>
+            </tr> 
+        }
+    }
+    </tbody>
+</table>
