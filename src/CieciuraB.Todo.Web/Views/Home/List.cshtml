@@ -4,7 +4,7 @@
     ViewData["Title"] = "List";
 }
 <h1>@ViewData["Title"]</h1>
-<table class="table table-hover table-bordered"> 
+<table class="table table-hover table-bordered">
     <thead>
     <tr>
         <td>#</td>
@@ -31,6 +31,12 @@
                        asp-action="Edit"
                        asp-route-id="@item.Id.ToString()">
                         Edytuj
+                    </a>
+                    <a class="btn btn-danger btn-sm"
+                       asp-controller="List"
+                       asp-action="Delete"
+                       asp-route-id="@item.Id.ToString()">
+                        Usuń
                     </a>
                 </td>
             </tr>

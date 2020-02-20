@@ -27,17 +27,26 @@ namespace CieciuraB.Todo.Web.Controllers
             }
         }
 
-        public IActionResult Delete()
+        public IActionResult Delete(Guid id)
         {
-            return View();
+            Item model = Persist.ContekstDb.Items.FirstOrDefault(x => x.Id == id);
+            return View(model);
         }
+
+        public IActionResult Remove(Guid id)
+        {
+            Item model = Persist.ContekstDb.Items.FirstOrDefault(x => x.Id == id);
+            Persist.ContekstDb.Items.Remove(model);
+            return Redirect("~/Home/List");
+        }
+
 
         [HttpGet]
         public IActionResult Update(Item model)
         {
-            Item src = Persist.ContekstDb.Items.FirstOrDefault(x=>x.Id==model.Id);
+            Item src = Persist.ContekstDb.Items.FirstOrDefault(x => x.Id == model.Id);
             Persist.ContekstDb.Items.Remove(src);
-            
+
             src.Name = model.Name;
             src.Description = model.Description;
             src.Priorytet = model.Priorytet;
