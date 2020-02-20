@@ -2,8 +2,9 @@ namespace CieciuraB.Todo.Web.Persist.Domain
 {
     public enum PriorityDictionary
     {
-        Niski=0,
-        Sredni=1,
-        Wysoki=2
+        Niski=1,
+        Sredni=2,
+        Wysoki=4,
+        Brak=0
     }
 }

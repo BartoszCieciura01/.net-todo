@@ -1,8 +1,8 @@
 @model CieciuraB.Todo.Web.Persist.Domain.Item;
 @{
-    ViewData["Title"] = "Czy chcesz usunąć zadanie " + @Model.Name;
+    ViewData["Title"] = "Czy chcesz usunąć " + @Model.Name + "?";
 }
-<h4>@ViewData["Title"]</h4>
+<h4 align="center" class="col-md-7">@ViewData["Title"]</h4>
 
 @using (Html.BeginForm("Remove", "List", FormMethod.Get, new {@enctype = "multipart/form-data"}))
 {
@@ -10,11 +10,11 @@
     @Html.HiddenFor(model => model.Description)
     @Html.HiddenFor(model => model.Priorytet)
     <div class="col-md-7">
-        <a class="btn btn-primary btn-sm float-left"
+        <a class="btn btn-success float-left" style="width: 150px; height: 45px"
            asp-controller="Home"
            asp-action="List">
             Nie
         </a>
-       <input type="submit" class="btn btn-primary float-right" value="Tak"/>
+       <input type="submit" class="btn btn-danger float-right" value="Tak" style="width: 150px; height: 45px"/>
     </div>
 }

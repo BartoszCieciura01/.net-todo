@@ -20,7 +20,7 @@ namespace CieciuraB.Todo.Web.Persist.Domain
         public Item()
         {
             this.Id = Guid.NewGuid();
-            this.Priorytet = PriorityDictionary.Niski;
+            this.Priorytet = PriorityDictionary.Brak;
         }
     }
 

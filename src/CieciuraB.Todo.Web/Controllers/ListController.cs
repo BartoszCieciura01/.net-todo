@@ -8,8 +8,8 @@ namespace CieciuraB.Todo.Web.Controllers
 {
     public class ListController : Controller
     {
-        // GET
-        public IActionResult New()
+        [HttpGet]
+        public IActionResult Add(Guid id)
         {
             return View();
         }
@@ -54,5 +54,6 @@ namespace CieciuraB.Todo.Web.Controllers
             Persist.ContekstDb.Items.Add(src);
             return Redirect("~/Home/List");
         }
+        
     }
 }

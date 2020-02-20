@@ -3,14 +3,23 @@
 @{
     ViewData["Title"] = "List";
 }
-<h1>@ViewData["Title"]</h1>
+
+<h1>
+    @ViewData["Title"]
+    <a class="btn btn-success float-right" style="width: 150px; height: 45px"
+       asp-controller="List"
+       asp-action="Add">
+        Dodaj zadanie
+    </a>
+</h1>
+
 <table class="table table-hover table-bordered">
     <thead>
     <tr>
         <td>#</td>
         <td>Nazwa</td>
         <td>Opis</td>
-        <td>Status</td>
+        <td>Priorytet</td>
         <td>Button</td>
     </tr>
     </thead>
