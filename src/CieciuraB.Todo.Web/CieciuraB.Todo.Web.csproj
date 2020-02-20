@@ -4,5 +4,11 @@
         <TargetFramework>netcoreapp3.1</TargetFramework>
     </PropertyGroup>
 
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Pages\List\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\List\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\List\New.cshtml" />
+    </ItemGroup>
+
 
 </Project>
