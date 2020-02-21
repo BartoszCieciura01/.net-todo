@@ -8,6 +8,7 @@ namespace CieciuraB.Todo.Web.Persist
     public static class ContekstDb
     {
         public static List<Item> Items { get; set; }
+        public static List<Account> Accounts { get; set; }
 
         public static void Init()
         {
@@ -33,7 +34,12 @@ namespace CieciuraB.Todo.Web.Persist
 
             Items.Add(item: item3);
             
-            
+            Accounts= new List<Account>();
+            Account konto1 = new Account();
+            konto1.Login = "admin";
+            konto1.Haslo = "admin";
+
+            Accounts.Add(konto1);
         }
     }
 }
