@@ -1,8 +1,5 @@
 using System;
 using System.ComponentModel.DataAnnotations;
-using CieciuraB.Todo.Web.Persist.Domain;
-using Microsoft.AspNetCore.Components.Forms;
-
 namespace CieciuraB.Todo.Web.Persist.Domain
 {
     public class Item
@@ -15,12 +12,12 @@ namespace CieciuraB.Todo.Web.Persist.Domain
         public string Description { get; set; }
         
         [Display(Name = "Priorytet")]
-        public PriorityDictionary Priorytet { get; set; }
+        public PriorityDictionary? Priorytet { get; set; }
 
         public Item()
         {
             this.Id = Guid.NewGuid();
-            this.Priorytet = PriorityDictionary.Brak;
+            this.Priorytet = null;
         }
     }
 

@@ -1,5 +1,4 @@
 @using CieciuraB.Todo.Web.Persist.Domain
-@using Microsoft.AspNetCore.Mvc.Formatters
 @model CieciuraB.Todo.Web.Persist.Domain.Item;
 @{
     ViewData["Title"] = "Edycja zadania " + @Model.Name;
@@ -40,7 +39,7 @@
                asp-action="List">
                 Anuluj
             </a>
-            <input type="submit" class="btn btn-primary float-right" value="Zapisz"/>
+            <input type="submit" class="btn btn-success float-right" value="Zapisz"/>
         </div>
 
     </div>

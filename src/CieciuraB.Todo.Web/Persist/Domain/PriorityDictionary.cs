@@ -5,6 +5,5 @@ namespace CieciuraB.Todo.Web.Persist.Domain
         Niski=1,
         Sredni=2,
         Wysoki=4,
-        Brak=0
     }
 }
