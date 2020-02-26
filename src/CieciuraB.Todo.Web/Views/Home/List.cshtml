@@ -1,0 +1,57 @@
+﻿@using CieciuraB.Todo.Web.Persist.Domain
+@model List<CieciuraB.Todo.Web.Persist.Domain.Item>;
+@{
+    ViewData["Title"] = "Lista zadań";
+}
+
+<h1>
+    @ViewData["Title"]
+    <a class="btn btn-success float-right" style="width: 150px; height: 45px"
+       asp-controller="List"
+       asp-action="Add">
+        Dodaj zadanie
+    </a>
+</h1>
+
+<table class="table table-hover table-bordered">
+    <thead>
+    <tr>
+        <td>Kod</td>
+        <td>Komunikat</td>
+        <td>Przyczyna</td>
+        <td>Rozwiazanie</td>
+        <td>Uwaga</td>
+        <td style="width:135px">Akcje</td>
+
+
+    </tr>
+    </thead>
+    <tbody>
+    @{
+        foreach (CieciuraB.Todo.Web.Persist.Domain.Item item in Model)
+        {
+            <tr>
+                <td>@item.Kod</td>
+                <td>@item.Komunikat</td>
+                <td>@item.Przyczyna</td>
+                <td>@item.Rozwiazanie</td>
+                <td>@item.Uwaga</td>
+                <td>
+                    <a class="btn btn-primary btn-sm"
+                       asp-controller="List"
+                       asp-action="Edit"
+                       asp-route-id="@item.Id.ToString()">
+                        Edytuj
+                    </a>
+                    <a class="btn btn-danger btn-sm"
+                       asp-controller="List"
+                       asp-action="Delete"
+                       asp-route-id="@item.Id.ToString()">
+                        Usuń
+                    </a>
+                </td>
+            </tr>
+        }
+    }
+    </tbody>
+</table>
