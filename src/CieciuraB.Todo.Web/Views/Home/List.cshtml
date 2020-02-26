@@ -22,14 +22,14 @@
         <td>Rozwiazanie</td>
         <td>Uwaga</td>
         <td style="width:135px">Akcje</td>
-
-
     </tr>
     </thead>
     <tbody>
     @{
         foreach (CieciuraB.Todo.Web.Persist.Domain.Item item in Model)
+
         {
+ 
             <tr>
                 <td>@item.Kod</td>
                 <td>@item.Komunikat</td>
