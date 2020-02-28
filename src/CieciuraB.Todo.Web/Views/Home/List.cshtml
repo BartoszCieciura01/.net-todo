@@ -1,15 +1,21 @@
 ﻿@using CieciuraB.Todo.Web.Persist.Domain
 @model List<CieciuraB.Todo.Web.Persist.Domain.Item>;
 @{
-    ViewData["Title"] = "Lista zadań";
+    ViewData["Title"] = "Lista błędów systemu Windows";
 }
 
 <h1>
     @ViewData["Title"]
+
     <a class="btn btn-success float-right" style="width: 150px; height: 45px"
        asp-controller="List"
        asp-action="Add">
-        Dodaj zadanie
+        Dodaj błąd
+    </a>
+    <a class="btn btn-primary float-right " style="width: 150px; height: 45px"
+       asp-controller="List"
+       asp-action="Search">
+        Szukaj błędu
     </a>
 </h1>
 
@@ -29,7 +35,6 @@
         foreach (CieciuraB.Todo.Web.Persist.Domain.Item item in Model)
 
         {
- 
             <tr>
                 <td>@item.Kod</td>
                 <td>@item.Komunikat</td>
@@ -48,6 +53,13 @@
                        asp-action="Delete"
                        asp-route-id="@item.Id.ToString()">
                         Usuń
+                    </a>
+                    <br/>
+                    <a class="btn btn-danger btn-sm"
+                       asp-controller="List"
+                       asp-action="Show"
+                       asp-route-id="@item.Id.ToString()">
+                        Sprawdź błąd
                     </a>
                 </td>
             </tr>

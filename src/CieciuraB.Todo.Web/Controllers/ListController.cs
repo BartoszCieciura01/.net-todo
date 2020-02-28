@@ -70,5 +70,22 @@ namespace CieciuraB.Todo.Web.Controllers
 
             return Redirect("~/Home/List");
         }
+        public IActionResult Search()
+        {
+            return View();
+        }
+
+        public IActionResult Show(Guid id)
+        {
+            Item model = Persist.ContekstDb.Items.FirstOrDefault(x => x.Id == id);
+            if (model == null)
+            {
+                throw new Exception("Nie ma takiego Id");
+            }
+            else
+            {
+                return View(model);
+            }
+        }
     }
 }
