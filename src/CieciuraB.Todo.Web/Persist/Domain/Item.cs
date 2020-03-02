@@ -13,6 +13,7 @@ namespace CieciuraB.Todo.Web.Persist.Domain
         [Display(Name = "Przyczyna")] [DataType(DataType.MultilineText)] public string Przyczyna { get; set; }
         [Display(Name = "Rozwiazanie")] [DataType(DataType.MultilineText)] public string Rozwiazanie { get; set; }
         [Display(Name = "Uwaga")] [DataType(DataType.MultilineText)] public string Uwaga { get; set; }
+        public string ItemMessage { get; set; }
 
         public Item()
         {

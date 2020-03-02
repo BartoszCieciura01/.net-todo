@@ -24,10 +24,7 @@
     <tr>
         <td>Kod</td>
         <td>Komunikat</td>
-        <td>Przyczyna</td>
-        <td>Rozwiazanie</td>
-        <td>Uwaga</td>
-        <td style="width:135px">Akcje</td>
+        <td style="width:243px">Akcje</td>
     </tr>
     </thead>
     <tbody>
@@ -38,9 +35,6 @@
             <tr>
                 <td>@item.Kod</td>
                 <td>@item.Komunikat</td>
-                <td>@item.Przyczyna</td>
-                <td>@item.Rozwiazanie</td>
-                <td>@item.Uwaga</td>
                 <td>
                     <a class="btn btn-primary btn-sm"
                        asp-controller="List"
@@ -54,8 +48,7 @@
                        asp-route-id="@item.Id.ToString()">
                         Usuń
                     </a>
-                    <br/>
-                    <a class="btn btn-danger btn-sm"
+                    <a class="btn btn-info btn-sm"
                        asp-controller="List"
                        asp-action="Show"
                        asp-route-id="@item.Id.ToString()">

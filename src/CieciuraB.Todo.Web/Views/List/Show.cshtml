@@ -1,62 +1,112 @@
-@using CieciuraB.Todo.Web.Persist.Domain
 @model CieciuraB.Todo.Web.Persist.Domain.Item;
 @{
     ViewData["Title"] = "Widok błędu numer " + @Model.Kod;
 }
-<h4>@ViewData["Title"]</h4>
-{
+<h4>
+    @ViewData["Title"]
+
+    <a class="btn btn-info float-right"
+       asp-controller="Home"
+       asp-action="List">
+        Powrót
+    </a>
+
+</h4>
+<table class="table table-hover table-bordered">
+    <thead>
+    <tr>
+    <td style="font-weight: bold">Komunikat</td>
+    </thead>
+    <tbody>
     <div class="form-horizontal">
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.Id)
         <div class="form-group">
-            
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.Kod, new {@class = "control-label col-md-2"})
-            <div class="col-md-7">
-                @Html.EditorFor(model => model.Kod, new {htmlAttributes = new {@class = "form-control"}})
-                @Html.ValidationMessageFor(model => model.Kod)
-            </div>
-        </div>
-    <div class="form-group">
-        @Html.LabelFor(model => model.Komunikat, new {@class = "control-label col-md-2"})
-        <div class="col-md-7">
-            @Html.EditorFor(model => model.Komunikat, new {htmlAttributes = new {@class = "form-control", rows = "2"}})
-            @Html.ValidationMessageFor(model => model.Komunikat)
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(model => model.Przyczyna, new {@class = "control-label col-md-2"})
-        <div class="col-md-7">
-            @Html.EditorFor(model => model.Przyczyna, new {htmlAttributes = new {@class = "form-control", rows = "3"}})
-            @Html.ValidationMessageFor(model => model.Przyczyna)
-        </div>
-    </div>
-   <div class="form-group">
-        @Html.LabelFor(model => model.Rozwiazanie, new {@class = "control-label col-md-2"})
-        <div class="col-md-7">
-            @Html.EditorFor(model => model.Rozwiazanie, new {htmlAttributes = new {@class = "form-control", rows = "2"}})
-            @Html.ValidationMessageFor(model => model.Rozwiazanie)
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(model => model.Uwaga, new {@class = "control-label col-md-2"})
-        <div class="col-md-7">
-            @Html.EditorFor(model => model.Uwaga, new {htmlAttributes = new {@class = "form-control", rows = "4"}})
-            @Html.ValidationMessageFor(model => model.Uwaga)
-        </div>
-    </div>
-        <div class="col-md-7">
-            <a class="btn btn-danger btn-sm float-left"
-               asp-controller="Home"
-               asp-action="List">
-                Powrót
-            </a>
-        </div>
 
+        </div>
+    </div>
+    <tr>
+        <td>
+        <div class="form-group">
+            <div>
+                @Html.DisplayFor(model => model.Komunikat, new {htmlAttributes = new {@class = "form-control"}})
+                @Html.ValidationMessageFor(model => model.Komunikat)
+            </div>
+        </div>
+    </tr>
+    </tbody>
+</table>
+<table class="table table-hover table-bordered">
+    <thead>
+    <tr>
+    <td style="font-weight: bold">Przyczyna</td>
+    </thead>
+    <tbody>
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.Id)
+        <div class="form-group">
     
+        </div>
+    </div>
+    <tr>
+        <td>
+        <div class="form-group">
+            <div>
+                @Html.DisplayFor(model => model.Przyczyna, new {htmlAttributes = new {@class = "form-control"}})
+                @Html.ValidationMessageFor(model => model.Przyczyna)
+            </div>
+        </div>
+    </tr>
+    </tbody>
+</table>
+<table class="table table-hover table-bordered">
+    <thead>
+    <tr>
+    <td style="font-weight: bold">Rozwiązanie</td>
+    </thead>
+    <tbody>
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.Id)
+        <div class="form-group">
+        
+        </div>
+    </div>
+    <tr>
+        <td>
+        <div class="form-group">
+            <div>
+                @Html.DisplayFor(model => model.Rozwiazanie, new {htmlAttributes = new {@class = "form-control"}})
+                @Html.ValidationMessageFor(model => model.Rozwiazanie)
+            </div>
+        </div>
+    </tr>
+    </tbody>
+</table>
+<table class="table table-hover table-bordered">
+    <thead>
     
+    <tr>
+    <td style="font-weight: bold">Uwaga</td>
+    </thead>
+            <tbody>
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true)
+                @Html.HiddenFor(model => model.Id)
+                <div class="form-group">
+        
+                </div>
+            </div>
+            <tr>
+                <td>
+                <div class="form-group">
+                    <div>
+                        @Html.DisplayFor(model => model.Uwaga, new {htmlAttributes = new {@class = "form-control"}})
+                        @Html.ValidationMessageFor(model => model.Uwaga)
+                    </div>
+                </div>
+            </tr>
+            </tbody>
     
-    
-}
+</table>

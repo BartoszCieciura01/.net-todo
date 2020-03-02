@@ -1,0 +1,41 @@
+@model CieciuraB.Todo.Web.Persist.Domain.Item;
+@{
+    ViewData["Title"] = "Podaj kod szukanego błędu";
+}
+<h4>@ViewData["Title"]</h4>
+
+@using (Html.BeginForm("Search", "List", FormMethod.Get, new {@enctype = "multipart/form-data"}))
+{
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+
+            <div class="col-md-7">
+                @Html.EditorFor(model => model.Kod, new {htmlAttributes = new {@class = "form-control"}})
+                @Html.ValidationMessageFor(model => model.Kod)
+            </div>
+        </div>
+        <div class="col-md-7">
+            @{
+                if (@Model?.ItemMessage != null)
+                {
+                    <div>
+                        @Model.ItemMessage
+                    </div>
+                }
+            }
+        </div>
+
+
+        <div class="col-md-7">
+            <a class="btn btn-danger float-left"
+               asp-controller="Home"
+               asp-action="Index">
+                Anuluj
+            </a>
+            <input type="submit" class="btn btn-success float-right" value="Szukaj"/>
+        </div>
+
+    </div>
+}

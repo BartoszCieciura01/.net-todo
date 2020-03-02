@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 using CieciuraB.Todo.Web.Persist.Domain;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CieciuraB.Todo.Web.Controllers
@@ -65,12 +66,17 @@ namespace CieciuraB.Todo.Web.Controllers
             newitem.Przyczyna = model.Przyczyna;
             newitem.Rozwiazanie = model.Rozwiazanie;
             newitem.Uwaga = model.Uwaga;
-            
+
             Persist.ContekstDb.Items.Add(newitem);
 
             return Redirect("~/Home/List");
         }
+
         public IActionResult Search()
+        {
+            return View();
+        }
+        public IActionResult ErrorFound()
         {
             return View();
         }
@@ -87,5 +93,28 @@ namespace CieciuraB.Todo.Web.Controllers
                 return View(model);
             }
         }
+
+        [HttpGet]
+        public IActionResult Search(Item item)
+        {
+            Item result =
+                Persist.ContekstDb.Items.FirstOrDefault(x => x.Kod == item.Kod);
+            if (result == null)
+            {
+                if (item.Kod == null)
+                {
+                    return View();
+                }
+                else
+
+                    return View(new Item {ItemMessage = "Podany kod jest błędny"});
+            }
+            else
+            {
+                return Redirect("~/List/ErrorFound");
+            }
+        }
+
+       
     }
 }
