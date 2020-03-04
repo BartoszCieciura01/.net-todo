@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.SignalR.Protocol;
 
 namespace CieciuraB.Todo.Web.Persist.Domain
 {
@@ -14,10 +15,12 @@ namespace CieciuraB.Todo.Web.Persist.Domain
         [Display(Name = "Rozwiazanie")] [DataType(DataType.MultilineText)] public string Rozwiazanie { get; set; }
         [Display(Name = "Uwaga")] [DataType(DataType.MultilineText)] public string Uwaga { get; set; }
         public string ItemMessage { get; set; }
-
+        public string ErrorFound { get; set; }
+        
         public Item()
         {
             this.Id = Guid.NewGuid();
         }
+        
     }
 }

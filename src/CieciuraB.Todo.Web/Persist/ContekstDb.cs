@@ -40,6 +40,14 @@ namespace CieciuraB.Todo.Web.Persist
             item3.Uwaga = "Może zostać wyświetlony monit o podanie ścieżki do sterownika.  W przypadku monitu o sterownik, który nie jest dostępny, można spróbować pobrać najnowszy sterownik z witryny dostawcy sprzętu.";
             Items.Add(item: item3);
             
+            var item4 = new Item();
+            item4.Kod = "1";
+            item4.Komunikat = ". (Kod test)";
+            item4.Przyczyna = "Test kod 1";
+            item4.Rozwiazanie = "";
+            item4.Uwaga = "";
+            Items.Add(item: item4);
+            
             Accounts= new List<Account>();
             Account konto1 = new Account();
             konto1.Login = "admin";

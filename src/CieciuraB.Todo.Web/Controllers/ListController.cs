@@ -76,10 +76,6 @@ namespace CieciuraB.Todo.Web.Controllers
         {
             return View();
         }
-        public IActionResult ErrorFound()
-        {
-            return View();
-        }
 
         public IActionResult Show(Guid id)
         {
@@ -111,10 +107,8 @@ namespace CieciuraB.Todo.Web.Controllers
             }
             else
             {
-                return Redirect("~/List/ErrorFound");
+                return View(result);
             }
         }
-
-       
     }
 }

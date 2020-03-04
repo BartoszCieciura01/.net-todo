@@ -1,10 +1,11 @@
+@using CieciuraB.Todo.Web.Persist.Domain
 @model CieciuraB.Todo.Web.Persist.Domain.Item;
 @{
     ViewData["Title"] = "Podaj kod szukanego błędu";
 }
 <h4>@ViewData["Title"]</h4>
 
-@using (Html.BeginForm("Search", "List", FormMethod.Get, new {@enctype = "multipart/form-data"}))
+@using (Html.BeginForm("Search", "List", FormMethod.Get , new {@enctype = "multipart/form-data"}))
 {
     <div class="form-horizontal">
         @Html.ValidationSummary(true)
@@ -31,11 +32,131 @@
         <div class="col-md-7">
             <a class="btn btn-danger float-left"
                asp-controller="Home"
-               asp-action="Index">
+               asp-action="List">
                 Anuluj
             </a>
             <input type="submit" class="btn btn-success float-right" value="Szukaj"/>
+            <br/>
+            <br/>
         </div>
+    </div>
 
+
+    <div>
+        @{
+            if (@Model?.Kod != null)
+            {
+                if (Model.Komunikat != string.Empty)
+                {
+                    <table class="table table-hover table-bordered">
+                        <thead>
+                        <tr>
+                        <td style="font-weight: bold">Komunikat</td>
+                        </thead>
+                        <tbody>
+                        <div class="form-horizontal">
+                            @Html.ValidationSummary(true)
+                            @Html.HiddenFor(model => model.Id)
+                            <div class="form-group">
+
+                            </div>
+                        </div>
+                        <tr>
+                            <td>
+                            <div class="form-group">
+                                <div>
+                                    @Html.DisplayFor(model => model.Komunikat, new {htmlAttributes = new {@class = "form-control"}})
+                                    @Html.ValidationMessageFor(model => model.Komunikat)
+                                </div>
+                            </div>
+                        </tr>
+                        </tbody>
+                    </table>
+                }
+                if (Model.Przyczyna != string.Empty)
+                {
+                    <table class="table table-hover table-bordered">
+                        <thead>
+                        <tr>
+                        <td style="font-weight: bold">Przyczyna</td>
+                        </thead>
+                        <tbody>
+                        <div class="form-horizontal">
+                            @Html.ValidationSummary(true)
+                            @Html.HiddenFor(model => model.Id)
+                            <div class="form-group">
+
+                            </div>
+                        </div>
+                        <tr>
+                            <td>
+                            <div class="form-group">
+                                <div>
+                                    @Html.DisplayFor(model => model.Przyczyna, new {htmlAttributes = new {@class = "form-control"}})
+                                    @Html.ValidationMessageFor(model => model.Przyczyna)
+                                </div>
+                            </div>
+                        </tr>
+                        </tbody>
+                    </table>
+                }
+                if (Model.Rozwiazanie != string.Empty)
+                {
+                    <table class="table table-hover table-bordered">
+                        <thead>
+                        <tr>
+                        <td style="font-weight: bold">Rozwiązanie</td>
+                        </thead>
+                        <tbody>
+                        <div class="form-horizontal">
+                            @Html.ValidationSummary(true)
+                            @Html.HiddenFor(model => model.Id)
+                            <div class="form-group">
+
+                            </div>
+                        </div>
+                        <tr>
+                            <td>
+                            <div class="form-group">
+                                <div>
+                                    @Html.DisplayFor(model => model.Rozwiazanie, new {htmlAttributes = new {@class = "form-control"}})
+                                    @Html.ValidationMessageFor(model => model.Rozwiazanie)
+                                </div>
+                            </div>
+                        </tr>
+                        </tbody>
+                    </table>
+                }
+                if (Model.Uwaga != string.Empty)
+                {
+                    <table class="table table-hover table-bordered">
+                        <thead>
+
+                        <tr>
+                        <td style="font-weight: bold">Uwaga</td>
+                        </thead>
+                        <tbody>
+                        <div class="form-horizontal">
+                            @Html.ValidationSummary(true)
+                            @Html.HiddenFor(model => model.Id)
+                            <div class="form-group">
+
+                            </div>
+                        </div>
+                        <tr>
+                            <td>
+                            <div class="form-group">
+                                <div>
+                                    @Html.DisplayFor(model => model.Uwaga, new {htmlAttributes = new {@class = "form-control"}})
+                                    @Html.ValidationMessageFor(model => model.Uwaga)
+                                </div>
+                            </div>
+                        </tr>
+                        </tbody>
+
+                    </table>
+                }
+            }
+        }
     </div>
 }
