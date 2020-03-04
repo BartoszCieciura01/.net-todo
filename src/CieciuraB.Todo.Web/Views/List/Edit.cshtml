@@ -5,22 +5,22 @@
 }
 <h4>@ViewData["Title"]</h4>
 
-@using (Html.BeginForm("Update","List", FormMethod.Get, new { @enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Update", "List", FormMethod.Get, new {@enctype = "multipart/form-data"}))
 {
     <div class="form-horizontal">
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.Id)
         <div class="form-group">
-            
-            </div>
+
         </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.Kod, new {@class = "control-label col-md-2"})
-            <div class="col-md-7">
-                @Html.EditorFor(model => model.Kod, new {htmlAttributes = new {@class = "form-control"}})
-                @Html.ValidationMessageFor(model => model.Kod)
-            </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Kod, new {@class = "control-label col-md-2"})
+        <div class="col-md-7">
+            @Html.EditorFor(model => model.Kod, new {htmlAttributes = new {@class = "form-control"}})
+            @Html.ValidationMessageFor(model => model.Kod)
         </div>
+    </div>
     <div class="form-group">
         @Html.LabelFor(model => model.Komunikat, new {@class = "control-label col-md-2"})
         <div class="col-md-7">
@@ -49,17 +49,13 @@
             @Html.ValidationMessageFor(model => model.Uwaga)
         </div>
     </div>
-        <div class="col-md-7">
-            <a class="btn btn-danger btn-sm float-left"
-               asp-controller="Home"
-               asp-action="List">
-                Anuluj
-            </a>
-            <input type="submit" class="btn btn-success float-right" value="Zapisz"/>
-        </div>
-
-    
-    
-    
-    
+    <div class="col-md-7">
+        <a class="btn btn-danger btn-sm float-left"
+           asp-controller="Home"
+           asp-action="List">
+            Anuluj
+        </a>
+        <input type="submit" class="btn btn-success float-right" value="Zapisz"/>
+        <br/>
+    </div>
 }
